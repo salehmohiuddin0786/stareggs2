@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ivory-rgb: 235 226 204;
+  --color-beige-rgb: 222 214 193;
+  --color-champagne-rgb: 207 198 177;
+  --color-taupe-rgb: 183 176 158;
+  --color-navy-rgb: 7 19 27;
+  --color-charcoal-rgb: 21 23 19;
+  --color-cream-rgb: 250 248 242;
+  --color-muted-rgb: 119 116 104;
+
+  --color-ivory: #EBE2CC;
+  --color-beige: #DED6C1;
+  --color-champagne: #CFC6B1;
+  --color-taupe: #B7B09E;
+  --color-navy: #07131B;
+  --color-charcoal: #151713;
+  --color-cream: #FAF8F2;
+  --color-muted: #777468;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: rgb(var(--color-cream-rgb));
+  color: rgb(var(--color-charcoal-rgb));
+  font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: rgb(var(--color-beige-rgb));
+  color: rgb(var(--color-navy-rgb));
+}
+
+/* Subtle editorial borders */
+.border-brand-soft {
+  border-color: rgb(var(--color-taupe-rgb) / 0.4);
+}
+
+.border-brand-divider {
+  border-color: rgb(var(--color-champagne-rgb) / 0.5);
+}
+
+/* Luxury card glow & depth */
+.luxury-card {
+  background: rgb(var(--color-cream-rgb));
+  border: 1px solid rgb(var(--color-champagne-rgb) / 0.45);
+  box-shadow: 0 10px 30px -10px rgb(var(--color-navy-rgb) / 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  border-color: rgb(var(--color-taupe-rgb) / 0.85);
+  box-shadow: 0 20px 40px -12px rgb(var(--color-navy-rgb) / 0.08);
+  transform: translateY(-3px);
+}
+
+/* Editorial typography utilities */
+.font-editorial-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+/* Accessible focus ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgb(var(--color-navy-rgb));
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
